@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <div class="calculator">
+        <h1>Calculadora de Redes</h1>
+
+        
+
+        <div class="input-group">
+            <div><h2>Capacidade Máxima de Canal</h2>
+        
+                <label for="bandwidth">Largura de Banda (MHz):</label>
+                <input type="number" id="bandwidth">
+                <p></p>
+                <label for="snr">Sinal/Ruído (dB):</label>
+                <input type="number" id="snr">
+                <p></p>
+                <button onclick="calculateShannonCapacity()">Calcular Shannon</button>
+                <p></p>
+                <div id="shannonCapacityResult"></div>
+                
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div><h2>Taxa de Nyquist</h2>
+                <label for="bandwidth_nyquist">Largura de Banda (MHz):</label>
+                <input type="number" id="bandwidth_nyquist">
+                <p></p>
+                <label for="modulationLevels">Modulação multinível:</label>
+                <input type="number" id="modulationLevels">
+                <p></p>
+                <button onclick="calculateNyquistRate()">Calcular Nyquist</button>
+                <p></p>
+                <div id="nyquistRateResult"></div>
+            </div>
+        </div>
+
+
+        <div class="input-group">
+            <div><h2>Conversão de mW para dBm</h2>
+                <label for="power_mW">Potência (mW):</label>
+                <input type="number" id="power_mW">
+                <p></p>
+                <button onclick="calculatemW_to_dbm()">Converter para dBm</button>
+                <p></p>
+                <div id="dbmResult"></div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div><h2>Conversão de dBm para mW</h2>
+                <label for="power_dBm">Potência (dBm):</label>
+                <input type="number" id="power_dBm">
+                <p></p>
+                <button onclick="calculatedBm_to_mW()">Converter para mW</button>
+                <p></p>
+                <div id="mWResult"></div>
+            </div>
+        </div>
+
+
+
+        <div class="input-group">
+            <div><h2>EIRP</h2>
+                <label for="txPower_dBm">Potência de transmissão (dBm):</label>
+                <input type="number" id="txPower_dBm">
+                <p></p>
+                <label for="antenna_gain_dBm">Ganho da Antena (dBi):</label>
+                <input type="number" id="antenna_gain_dBm">
+                <p></p>
+                <label for="cable_losses">Perdas no Cabo (dB):</label>
+                <input type="number" id="cable_losses">
+                <p></p>
+                <button onclick="calculateEIRP()">Calcular EIRP</button>
+                <p></p>
+                <div id="eirpResult"></div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div><h2>FSL</h2>
+                <label for="distance_km">Distância (km):</label>
+                <input type="number" id="distance_km">
+                <p></p>
+                <label for="frequency">Frequência (MHz):</label>
+                <input type="number" id="frequency">
+                <p></p>
+                <button onclick="calculateFSPL()">Calcular FSL</button>
+                <p></p>
+                <div id="fslResult"></div>
+            </div>
+        </div>
+
+
+        <div class="input-group">
+            <div> <h2>RSL</h2>
+                <label for="potencia">Potência de transmissão (dBm):</label>
+                <input type="number" id="potencia">
+                <p></p>
+                <label for="antenna_gain_tx">Ganho da Antena TX (dBi):</label>
+                <input type="number" id="antenna_gain_tx">
+                <p></p>
+                <label for="cable_losses_tx">Perdas no Cabo TX (dB)</label>
+                <input type="number" id="cable_losses_tx">
+                <p></p>
+                <label for="fspl_dB">FSL (db):</label>
+                <input type="number" id="fspl_dB">
+                <p></p>
+                <label for="antenna_gain_rx">Ganho da Antena RX (dBi):</label>
+                <input type="number" id="antenna_gain_rx">
+                <p></p>
+                <label for="cable_losses_rx">Perdas no Cabo RX (dB):</label>
+                <input type="number" id="cable_losses_rx">
+                <p></p>
+                <button onclick="calculateReceivedSignalLevel()">Calcular RSL</button>
+                <p></p>
+                <div id="rslResult"></div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div> <h2>Primeiro Raio da Zona de Fresnel</h2>
+                <label for="d_transmitter_obstacle_km">Distância do transmissor até obstáculo (km):</label>
+                <input type="number" id="d_transmitter_obstacle_km">
+                <p></p>
+                <label for="d_receiver_obstacle_km">Distância do receptor até obstáculo (km):</label>
+                <input type="number" id="d_receiver_obstacle_km">
+                <p></p>
+                <label for="distancia">Distância total (km):</label>
+                <input type="number" id="distancia">
+                <p></p>
+                <label for="frequencia">Frequência (MHz):</label> 
+                <input type="number" id="frequencia">
+                <p></p>
+                <button onclick="calculateFresnelZoneRadius()">Calcular Primeiro Raio da Zona de Fresnel</button>
+                <p></p>
+                <div id="fzrResult"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
