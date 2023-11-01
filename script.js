@@ -80,8 +80,8 @@ function calculateReceivedSignalLevel() {
     
 
 
-function fresnelZoneRadius(d_transmitter_obstacle_km, d_receiver_obstacle_km, distance_km, frequency_MHz) {
-    var firstRadius = 550 * Math.sqrt((d_transmitter_obstacle_km * d_receiver_obstacle_km) / (distance_km * frequency_MHz));
+function fresnelZoneRadius(d_transmitter_obstacle_km, d_receiver_obstacle_km, frequency_MHz) {
+    var firstRadius = 550 * Math.sqrt((d_transmitter_obstacle_km * d_receiver_obstacle_km) / ((d_transmitter_obstacle_km + d_receiver_obstacle_km) * frequency_MHz));
     if (frequency_MHz <= 3000) {
         var secondRadius = 0.6 * firstRadius;
         return [Math.floor(firstRadius * 100) / 100, Math.floor(secondRadius * 100) / 100];
@@ -96,9 +96,8 @@ function fresnelZoneRadius(d_transmitter_obstacle_km, d_receiver_obstacle_km, di
 function calculateFresnelZoneRadius() {
     var d_transmitter_obstacle_km = parseFloat(document.getElementById("d_transmitter_obstacle_km").value);
     var d_receiver_obstacle_km = parseFloat(document.getElementById("d_receiver_obstacle_km").value);
-    var distance_km = parseFloat(document.getElementById("distancia").value);
     var frequency_MHz = parseFloat(document.getElementById("frequencia").value);
-    var fresnelZoneRadii = fresnelZoneRadius(d_transmitter_obstacle_km, d_receiver_obstacle_km, distance_km, frequency_MHz);
+    var fresnelZoneRadii = fresnelZoneRadius(d_transmitter_obstacle_km, d_receiver_obstacle_km, frequency_MHz);
 
     var resultsDiv = document.getElementById("fzrResult");
     resultsDiv.innerHTML = ''; // Limpar resultados anteriores
